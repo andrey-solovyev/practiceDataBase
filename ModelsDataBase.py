@@ -3,6 +3,12 @@ from werkzeug.security import generate_password_hash, check_password_hash
 import psycopg2
 from __init__ import db, login_manager
 
+class User_Site(db.Model,UserMixin):
+    Id = db.Column(db.Integer,autoincrement=True,primary_key=True)
+    email = db.Column(db.String(100))
+    password_hash = db.Column(db.String(100))
+    role = db.Column(db.Integer,default=0)
+
 class Human(db.Model):
     Id = db.Column(db.Integer,autoincrement=True,primary_key=True)
     surname = db.Column(db.String(100))

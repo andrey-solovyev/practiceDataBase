@@ -2,8 +2,7 @@ CREATE TABLE User_Site(
     Id SERIAL PRIMARY KEY,
     email CHARACTER VARYING(255),
     password_hash CHARACTER VARYING(255),
-    isUser bool default true,
-    isAdmin bool default false
+    role smallint default 0
 );
 
 CREATE TABLE Human(
