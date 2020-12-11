@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Мир в облаке</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <link href="{{ url_for('static', filename='css/animate.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/owl.carousel.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/owl.theme.default.min.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/magnific-popup.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/bootstrap-datepicker.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/jquery.timepicker.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/flaticon.css') }}" rel="stylesheet">
+
+    <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
+
+</head>
+<body>
+<div class="py-1 top">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm text-center text-md-left mb-md-0 mb-2 pr-md-4 d-flex topper align-items-center">
+                <p class="mb-0 w-100">
+                    <span class="fa fa-paper-plane"></span>
+                    <span class="text">worldInSpring@dot.com</span>
+                </p>
+            </div>
+            <div class="col-sm justify-content-center d-flex mb-md-0 mb-2">
+                <div class="social-media">
+                    <p class="mb-0 d-flex">
+                        <a href="https://www.facebook.com/"
+                           class="d-flex align-items-center justify-content-center"><span
+                                class="fa fa-facebook"><i class="sr-only">Facebook</i></span></a>
+                        <a href="https://www.twitter.com/"
+                           class="d-flex align-items-center justify-content-center"><span
+                                class="fa fa-twitter"><i class="sr-only">Twitter</i></span></a>
+                        <a href="https://www.instagram.com/?hl=ru"
+                           class="d-flex align-items-center justify-content-center"><span
+                                class="fa fa-instagram"><i class="sr-only">Instagram</i></span></a>
+                    </p>
+                </div>
+            </div>
+            {#            <div class="col-sm-12 col-md-6 col-lg-7 d-flex topper align-items-center text-lg-right justify-content-end">#}
+            {#                <p class="mb-0 register-link"><a href="#" class="btn btn-primary" data-toggle="modal"#}
+            {#                                                 data-target="#exampleModalCenter">Inquire Now</a></p>#}
+            {#            </div>#}
+        </div>
+    </div>
+</div>
+<div class="pt-4 pb-5">
+    <div class="container">
+        <div class="row d-flex align-items-start align-items-center px-3 px-md-0">
+            <div class="col-md-4 d-flex mb-2 mb-md-0">
+                <a class="navbar-brand d-flex align-items-center" href="index.html">
+                    <span class="flaticon flaticon-crane"></span>
+                    <span class="ml-2">Мир в облаке <small>Строительная компания</small></span>
+                </a>
+            </div>
+            <div class="col-md-4 d-flex topper mb-md-0 mb-2 align-items-center">
+                <div class="icon d-flex justify-content-center align-items-center">
+                    <span class="fa fa-map"></span>
+                </div>
+                <div class="pr-md-4 pl-md-3 pl-3 text">
+                    <p class="con"><span>Бесплатный звонок</span> <span>+8 800 123 4567</span></p>
+                    <p class="con">Работаем 24/7</p>
+                </div>
+            </div>
+            <div class="col-md-4 d-flex topper mb-md-0 align-items-center">
+                <div class="icon d-flex justify-content-center align-items-center"><span
+                        class="fa fa-paper-plane"></span>
+                </div>
+                <div class="text pl-3 pl-md-3">
+                    <p class="hr"><span>Наш адрес</span></p>
+                    <p class="con">Где-то очень далеко в Сибире</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark ftco-navbar-light" id="ftco-navbar">
+    <div class="container d-flex align-items-center">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
+                aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="fa fa-bars"></span> Главное меню
+        </button>
+        <div class="collapse navbar-collapse" id="ftco-nav">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item active"><a href="index.html" class="nav-link">Гланое меню</a></li>
+                <li class="nav-item"><a href="project.html" class="nav-link">Строительные позиции</a></li>
+                <li class="nav-item"><a href="about.html" class="nav-link">О нас</a></li>
+
+                <li class="nav-item"><a href="contact.html" class="nav-link">Напишите нам</a></li>
+            </ul>
+            <a href="signin" class="btn-custom" data-toggle="modal" data-target="#exampleModalCenter">Войти</a>
+        </div>
+    </div>
+</nav>
+<div class="jumbotron">
+    <h1>Service </h1>
+    <form class="form-signin" method="post">
+        <label for="inputEmail" class="sr-only">Email address</label>
+        <input type="email" name="inputEmail" id="inputEmail" class="form-control" placeholder="Email address" required
+               autofocus>
+        <label for="inputPhone" class="sr-only">Phone</label>
+        <input type="text" name="inputPhone" id="inputPhone" class="form-control" placeholder="Phone" required
+               autofocus>
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" name="inputPassword" id="inputPassword" class="form-control" placeholder="Password"
+               required>
+
+        <button id="btnSignUp" class="btn btn-lg btn-primary btn-block" type="submit">Sign up</button>
+    </form>
+</div>
+
+
+<footer class="footer">
+    <p>&copy; Andrey Solovyev</p>
+</footer>
+
+</div>
+</body>
+</html>
