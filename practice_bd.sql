@@ -117,3 +117,5 @@ FROM human
                                                  FROM flat AS f
                                                  WHERE f.id = (SELECT flat_id FROM contract WHERE human_id = human.id))
          JOIN construction_position ON construction_position.id = construction.id;
+
+SELECT f.count_flat,COUNT(f.number_flat) FROM Flat AS f WHERE f.construction_id=1 GROUP BY f.count_flat ORDER BY f.count_flat;

@@ -1,9 +1,12 @@
+import time
+
 from flask import Flask, render_template, request, redirect, flash
 from flask_login import login_user, logout_user, current_user, login_required, user_unauthorized
 from ModelsDataBase import *
 from Classes import *
 from __init__ import db, admin, app
 import views
+from datetime import date, datetime
 
 
 @app.route('/')
@@ -20,19 +23,64 @@ def main_page():
 
 @app.route('/single_build/<id>')
 def build_single(id):
-    flats = get_available_flat_in_construction_position(id)
+    flats = get_count_flats(id)
     return render_template('building_single.html', flats=flats, construction=get_construction_by_position(id),
                            construction_position=get_construction_position(id))
 
 
-# @app.route('/single_build/<id>/flat/<flat_id>', methods=['GET', "POST"])
-# def get_flat_by_id(id, flat_id):
-#     return render_template('building_single.html')
-#
-#
-# @app.route('admins/input_construction', methods=['GET', "POST"])
-# def input_construction():
-#     return render_template('index.html', type_building=get_type_building())
+@app.route('/building')
+def builidng_page():
+    return render_template('blog.html', construction_positions=get_available_building())
+
+
+@app.route('/menedger', methods=['GET', "POST"])
+@login_required
+def menedger_menu():
+    return render_template('menedger.html', humans=get_all_humans())
+
+
+@app.route('/search', methods=['GET', 'POST'])
+def search_build():
+    res = ""
+    text = request.form.get('address')
+    positions = get_construction_positions()
+    for position in positions:
+        print(position.address)
+        if text in position.address:
+            res += position.address
+    return render_template('index.html', construction_positions=get_available_building(), res=res)
+
+#  ПОИСК
+@app.route('/search_perfomance', methods=['GET', 'POST'])
+def search_perfomance():
+    res = ""
+    performances = None
+    title = request.form.get('title')
+    date_performance = request.form.get('date_performance')
+    if date_performance == None:
+        performances = get_performance_by_title(title)
+    elif title != None and date_performance != None:
+        performances = get_performance_by_title_and_date(title, date_performance.split()[0])
+    return render_template('index.html', search_performances=performances)
+#  КОНЕЦ ПОИСКа
+
+
+@app.route('/menedger/add_himan', methods=["POST"])
+@login_required
+def menedger_add_human():
+    if current_user.role > 0:
+        # проверяем есть ли права админа имеет право только админ
+        surname = request.form.get('surname')
+        name = request.form.get('name')
+        middle_name = request.form.get('middle_name')
+        passport_data = request.form.get('passport_data')
+        address = request.form.get('address')
+        phone = request.form.get('phone')
+        dateText = request.form.get('date')
+        dt = datetime.now()
+        dt.replace(year=int(dateText.split('-')[0]), month=int(dateText.split('-')[1]), day=int(dateText.split('-')[2]))
+        insert_new_human(surname, name, middle_name, dt, passport_data, address, phone)
+    return redirect('/menedger')
 
 
 @app.route('/signup', methods=['GET', "POST"])  # регистрация

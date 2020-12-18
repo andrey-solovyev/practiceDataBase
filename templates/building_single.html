@@ -152,7 +152,7 @@
        <h3>Свободные квартиры</h3>
         {% for flat in flats %}
             <p>Этаж {{ flat.count_flat }}</p>
-            <a href=""><p>Номер квартиры{{ flat.number_flat }}</p></a>
+            <a href=""><p>Количество свободные квартир квартиры: {{ flat.count }}</p></a>
         {% endfor %}
     </div>
 </section>
